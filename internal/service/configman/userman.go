@@ -1,0 +1,6 @@
+package configman
+
+
+func saveObj(){
+
+}
