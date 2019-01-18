@@ -1,22 +1,25 @@
 package controller
 
 import (
-	"linkresshd/internal/mpty"
-	"fmt"
 	"github.com/gliderlabs/ssh"
+	"io"
+	"linkresshd/internal/mpty"
 	"log"
 )
 
-func Authorization(s * ssh.Session) bool{
+func Authorization(s *ssh.Session) (bool, error) {
 	username := (*s).User()
-	mpty.SendLine(s, fmt.Sprintf("Username: %s , Password: ",username))
+	_, err := io.WriteString(*s, "Password:")
+	if err != nil {
+		return false, err
+	}
 	password := mpty.ReadLine(s)
-	if password != "foo" {
-		log.Println("User failed. INFO:", username, password)
-		return false
-	}else {
-		log.Println("User successful. INFO:", username, password)
+	if username != GlobalConfigInstance.Name || password != GlobalConfigInstance.Password {
+		log.Println("Login failed. Username:", username,"address:",(*s).RemoteAddr().String())
+		return false, nil
+	} else {
+		log.Println("Login successful. Username:", username,"address:",(*s).RemoteAddr().String())
 		mpty.SendLine(s, "\n\n")
-		return true
+		return true, nil
 	}
 }

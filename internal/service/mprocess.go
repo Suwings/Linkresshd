@@ -14,9 +14,9 @@ type MineProcess struct {
 	Pcmd    *exec.Cmd
 }
 
-func NewMineProcess(command string, params []string) (*MineProcess ,error){
+func NewMineProcess(command string, params []string) (*MineProcess, error) {
 	mp := new(MineProcess)
-	return mp,mp.RunProcess(command, params)
+	return mp, mp.RunProcess(command, params)
 }
 
 func (p *MineProcess) RunProcess(commandName string, params []string) error {
@@ -29,7 +29,7 @@ func (p *MineProcess) RunProcess(commandName string, params []string) error {
 	p.Pstdout = &stdout
 	p.Pstderr = &stderr
 	if err1 != nil || err2 != nil || err3 != nil {
-		fmt.Println(err1,err2,err3)
+		fmt.Println(err1, err2, err3)
 		return err1
 	}
 	cmd.Start()

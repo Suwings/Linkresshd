@@ -1,6 +1,6 @@
 package models
 
-type InstanceData struct {
+type ConfigInstance struct {
 	Name     string `json:"name"`
 	Password string `json:"password"`
 	Command  string `json:"command"`

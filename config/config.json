@@ -1,5 +1,5 @@
 {
-  "name" : "root",
-  "password" : "toor",
-  "command" :"xxx"
+  "name": "root",
+  "password": "toor",
+  "command": "/bin/bash"
 }
