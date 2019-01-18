@@ -1,6 +1,7 @@
 package models
 
 type InstanceData struct {
-	Name       string `json:"name"`
-	Command    string `json:"command"`
+	Name     string `json:"name"`
+	Password string `json:"password"`
+	Command  string `json:"command"`
 }
