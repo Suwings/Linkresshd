@@ -14,7 +14,7 @@ Linkresshd
 
 配置文件
 ------
-在 `config/config.json` 中，您可以自行修改
+在 `config/config.json` 中 (此文件必须存在)，您可以自行修改。
 ```
 "name": "root",         登录的用户名
 "password": "toor",     登录的密码
