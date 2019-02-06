@@ -6,9 +6,12 @@ Linkresshd
 
 使用方法
 ------
-下载发行版的二进制程序或者自行编译，可使用 go build 编译。
 
-再直接运行二进制文件即可。
+- 下载[最新发行版](https://github.com/Suwings/Linkresshd/releases/latest)的二进制程序直接运行。
+- 下载或克隆源代码自行编译，可使用 go build 编译。
+
+感谢使用！
+
 
 <br />
 
@@ -22,4 +25,9 @@ Linkresshd
 "port": 2222            监听的端口
 ```
 <br />
+
+
+开源协议
+------
+使用 `MIT License` 开源协议。
 
