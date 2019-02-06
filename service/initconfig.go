@@ -28,5 +28,6 @@ func InitConfig() {
 		}
 	}
 	log.Println("[Config] Username:", GlobalConfigInstance.Name)
-	log.Println("[Config] Command: ", GlobalConfigInstance.Command)
+	log.Println("[Config] Command:", GlobalConfigInstance.Command)
+	log.Println("[Config] Port:", GlobalConfigInstance.Port)
 }

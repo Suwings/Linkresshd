@@ -1,5 +1,6 @@
 {
   "name": "root",
   "password": "toor",
-  "command": "/bin/bash"
+  "command": "/bin/bash",
+  "port": 2222
 }

@@ -8,6 +8,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strconv"
 )
 
 func main() {
@@ -36,6 +37,6 @@ func main() {
 		mpty.PtyExecProcess(&s, service.GlobalConfigInstance.Command)
 
 	})
-	log.Println("Starting ssh server on port 2222...")
-	log.Fatal(ssh.ListenAndServe(":2222", nil))
+	log.Println("Starting ssh server....")
+	log.Fatal(ssh.ListenAndServe(":" + strconv.Itoa(service.GlobalConfigInstance.Port), nil))
 }
