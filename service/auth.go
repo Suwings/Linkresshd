@@ -1,9 +1,9 @@
-package controller
+package service
 
 import (
 	"github.com/gliderlabs/ssh"
 	"io"
-	"linkresshd/internal/mpty"
+	"linkresshd/mpty"
 	"log"
 )
 

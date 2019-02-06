@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/gliderlabs/ssh"
-	"linkresshd/internal/controller"
-	"linkresshd/internal/mpty"
+	"linkresshd/mpty"
+	"linkresshd/service"
 	"log"
 	"os"
 	"path/filepath"
@@ -14,13 +14,13 @@ func main() {
 	dir, _ := filepath.Abs(filepath.Dir(os.Args[0]))
 	log.Println("Process pwd:", dir)
 	//init
-	controller.InitConfig()
+	service.InitConfig()
 	//SSH Server handle
 	ssh.Handle(func(s ssh.Session) {
 		username := s.User()
 		//verification
 		for {
-			isLogin, err := controller.Authorization(&s)
+			isLogin, err := service.Authorization(&s)
 			if err != nil {
 				log.Println(" login error:", err)
 				return
@@ -33,7 +33,7 @@ func main() {
 		//welcome msg
 		mpty.SendLine(&s, fmt.Sprintf("Welcome, %s.\n", username))
 		//exec system command
-		mpty.PtyExecProcess(&s, controller.GlobalConfigInstance.Command)
+		mpty.PtyExecProcess(&s, service.GlobalConfigInstance.Command)
 
 	})
 	log.Println("Starting ssh server on port 2222...")

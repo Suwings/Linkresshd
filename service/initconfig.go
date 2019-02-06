@@ -1,9 +1,9 @@
-package controller
+package service
 
 import (
 	"encoding/json"
 	"io/ioutil"
-	"linkresshd/internal/models"
+	"linkresshd/models"
 	"log"
 	"os"
 	"path/filepath"
